@@ -4,10 +4,17 @@ public class TreeDriver {
 	
 	public static void main(String[] args) {
 
-		Tree t1 = new Tree();
+		Tree<Integer> t1 = new Tree<Integer>();
 		
+		t1.insert(6);
+		t1.insert(9);
+		t1.insert(7);
+		t1.insert(3);
+		t1.insert(5);
+		t1.insert(2);
+		t1.insert(15);
 		
-
+	 System.out.println("Count: " + t1.getCount());
 	}
 
 }
