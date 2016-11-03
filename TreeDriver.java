@@ -15,6 +15,11 @@ public class TreeDriver {
 		t1.insert(15);
 		
 	 System.out.println("Count: " + t1.getCount());
+	 
+	 Tree<Integer> t = new Tree<Integer>();
+	
+	 t1.display(t1.getRoot());
+
 	}
 
 }

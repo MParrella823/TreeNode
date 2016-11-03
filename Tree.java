@@ -90,7 +90,7 @@ public class Tree<T> {
 	}
 
 	public void delete(T val){
-
+		
 
 
 	}
@@ -110,5 +110,22 @@ public class Tree<T> {
 			}
 		}
 		return curr;
+	}
+	
+	public void display(TreeNode<T> tn){
+		
+		if (tn != null){
+			System.out.print(tn.getData() + " ");
+			display(tn.getLeft());
+			display(tn.getRight());	
+			
+		}
+		
+
+		
+		
+		
+		
+		
 	}
 }
