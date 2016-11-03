@@ -1,11 +1,12 @@
 
 public class TreeDriver {
 
-	/**
-	 * @param args
-	 */
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
+		Tree t1 = new Tree();
+		
+		
 
 	}
 

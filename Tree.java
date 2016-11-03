@@ -1,4 +1,10 @@
 
+/*
+ * 
+ * This is a Binary Tree object.
+ * 
+ */
+
 public class Tree<T> {
 	
 	private TreeNode<T> root;
@@ -41,7 +47,40 @@ public class Tree<T> {
 		this.count = count;
 	}
 
-
+	public void insert(T val){
+		
+		
+		
+		
+		
+	}
+	
+	public void delete(T val){
+		
+		
+		
+	}
+	
+	public TreeNode<T> find(T val){
+		
+	
+		TreeNode<T> curr = null;
+		
+		curr = root;
+		
+		while (curr != null){
+			if (curr.getData() == (Integer)val){
+				break;		
+			}
+			else if ((Integer)val < (Integer)curr.getData()){
+				curr = curr.getLeft();
+			}
+			else {
+				curr = curr.getRight();
+			}
+		}
+		return curr;
+	}
 	
 
 }

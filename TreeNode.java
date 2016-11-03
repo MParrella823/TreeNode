@@ -1,4 +1,10 @@
 
+/*
+ * 
+ * These are Binary TreeNodes objects.
+ * 
+ */
+
 public class TreeNode<T> {	
 	
 	private TreeNode<T>left;
@@ -13,8 +19,8 @@ public class TreeNode<T> {
 		parent = null;
 	}
 	
-	public TreeNode(T data){
-		this.data = data;
+	public TreeNode(T t){
+		data = t;
 		left = null;
 		right = null;
 		parent = null;
