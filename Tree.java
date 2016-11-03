@@ -112,20 +112,31 @@ public class Tree<T> {
 		return curr;
 	}
 	
-	public void display(TreeNode<T> tn){
+	public void preorder(TreeNode<T> tn){
 		
 		if (tn != null){
 			System.out.print(tn.getData() + " ");
-			display(tn.getLeft());
-			display(tn.getRight());	
+			preorder(tn.getLeft());
+			preorder(tn.getRight());	
+		}
+	}
+	
+	public void postorder(TreeNode<T> tn){
+		
+		if (tn != null){
+			postorder(tn.getLeft());
+			postorder(tn.getRight());	
+			System.out.print(tn.getData() + " ");
+		}
+	}
+	
+	public void inorder(TreeNode<T> tn){
+		
+		if (tn != null){
+			inorder(tn.getLeft());
+			System.out.print(tn.getData() + " ");
+			inorder(tn.getRight());	
 			
 		}
-		
-
-		
-		
-		
-		
-		
 	}
 }

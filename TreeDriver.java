@@ -18,8 +18,19 @@ public class TreeDriver {
 	 
 	 Tree<Integer> t = new Tree<Integer>();
 	
-	 t1.display(t1.getRoot());
+	 System.out.println("\nPre Order: ");
+	 
+	 t1.preorder(t1.getRoot());
+	 System.out.println("");
+	 System.out.println("\nIn Order:");
+	 
+	 t1.inorder(t1.getRoot());
+	 System.out.println("");
+	 System.out.println("\nPost Order:");
+	 
+	 t1.postorder(t1.getRoot());
 
+	 
 	}
 
 }
