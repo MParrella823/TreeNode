@@ -92,14 +92,8 @@ public class Tree<T> {
 	public TreeNode<T> deleteNode(T val){
 		TreeNode<T> temp;
 		temp = find(val);
-		
 		deleteNode(this.root, val);
-		
-		
-		
 		return temp;
-		
-		
 	}
 	
 	private void deleteNode(TreeNode<T> tn, T val){
