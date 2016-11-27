@@ -125,10 +125,7 @@ public class Tree<T> {
 			}
 			
 			else{ 
-				
 				curr = find(val);
-				
-				
 				if (curr.getLeft() == null && curr.getRight() == null){ //Deleting Leaf node
 					curr = curr.getParent();
 					if (curr.getLeft() == find(val)){
@@ -152,8 +149,6 @@ public class Tree<T> {
 					curr.setLeft(null);
 					count--;
 				}
-					
-					
 			}
 		}
 	}
@@ -203,12 +198,10 @@ public class Tree<T> {
 		}
 	}
 	
-	public TreeNode<T> findRightMin(TreeNode<T> tn){
-		
+	private TreeNode<T> findRightMin(TreeNode<T> tn){
 		TreeNode<T> curr = null;
 		curr = tn;
 		curr = curr.getRight();
-		
 		if (curr.getLeft() == null){
 			return curr;
 		}
@@ -216,25 +209,6 @@ public class Tree<T> {
 			while (curr.getLeft() != null){
 				curr = curr.getLeft();
 			}
-		
-		}
-		return curr;
-	}
-	
-	public TreeNode<T> findLeftMax(){
-		
-		TreeNode<T> curr = null;
-		curr = root;
-		curr = curr.getLeft();
-		
-		if (curr.getRight() == null){
-			return curr;
-		}
-		else{
-			while (curr.getRight() != null){
-				curr = curr.getRight();
-			}
-			
 		}
 		return curr;
 	}
