@@ -89,10 +89,73 @@ public class Tree<T> {
 		
 	}
 
-	public void delete(T val){
+	public TreeNode<T> deleteNode(T val){
+		TreeNode<T> temp;
+		temp = find(val);
 		
-
-
+		deleteNode(this.root, val);
+		
+		
+		
+		return temp;
+		
+		
+	}
+	
+	private void deleteNode(TreeNode<T> tn, T val){
+		TreeNode<T> curr;
+		TreeNode<T> temp;
+		curr = tn;
+		if (tn == null){ //empty tree
+			System.out.println("Tree is empty!");
+		}
+		
+		else if (count == 1){
+			root = null;
+			count--;
+			System.out.println("Tree is now empty!");
+		}
+		else{
+			if ((Integer)val == (Integer)tn.getData()){  //Deleting Root Node
+				curr = findRightMin(curr);
+				tn.setData(curr.getData());
+				curr = curr.getParent();
+				curr.setLeft(null);
+				count --;
+			}
+			
+			else{ 
+				
+				curr = find(val);
+				
+				
+				if (curr.getLeft() == null && curr.getRight() == null){ //Deleting Leaf node
+					curr = curr.getParent();
+					if (curr.getLeft() == find(val)){
+						curr.setLeft(null);
+						count--;
+					}
+					else if (curr.getRight() == find(val)){
+						curr.setRight(null);
+						count--;
+					}
+				}
+				else if (curr.getRight() != null && curr.getLeft() != null){ //Deleting node with 2 children
+					temp = findRightMin(curr);
+					curr.setData(temp.getData());
+					curr.setRight(null);
+					count--;
+				}
+				else if (curr.getRight() == null && curr.getLeft() !=null){ //Deleting node with only left child
+					temp = curr.getLeft();
+					curr.setData(temp.getData());
+					curr.setLeft(null);
+					count--;
+				}
+					
+					
+			}
+		}
 	}
 
 	public TreeNode<T> find(T val){
@@ -138,5 +201,41 @@ public class Tree<T> {
 			inorder(tn.getRight());	
 			
 		}
+	}
+	
+	public TreeNode<T> findRightMin(TreeNode<T> tn){
+		
+		TreeNode<T> curr = null;
+		curr = tn;
+		curr = curr.getRight();
+		
+		if (curr.getLeft() == null){
+			return curr;
+		}
+		else{
+			while (curr.getLeft() != null){
+				curr = curr.getLeft();
+			}
+		
+		}
+		return curr;
+	}
+	
+	public TreeNode<T> findLeftMax(){
+		
+		TreeNode<T> curr = null;
+		curr = root;
+		curr = curr.getLeft();
+		
+		if (curr.getRight() == null){
+			return curr;
+		}
+		else{
+			while (curr.getRight() != null){
+				curr = curr.getRight();
+			}
+			
+		}
+		return curr;
 	}
 }
