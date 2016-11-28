@@ -103,7 +103,6 @@ public class Tree<T> {
 		if (tn == null){ //empty tree
 			System.out.println("Tree is empty!");
 		}
-		
 		else if (count == 1){
 			root = null;
 			count--;
@@ -117,7 +116,6 @@ public class Tree<T> {
 				curr.setLeft(null);
 				count --;
 			}
-			
 			else{ 
 				curr = find(val);
 				if (curr.getLeft() == null && curr.getRight() == null){ //Deleting Leaf node
@@ -164,30 +162,30 @@ public class Tree<T> {
 		return curr;
 	}
 	
-	public void preorder(TreeNode<T> tn){
+	public void preorderPrint(TreeNode<T> tn){
 		
 		if (tn != null){
 			System.out.print(tn.getData() + " ");
-			preorder(tn.getLeft());
-			preorder(tn.getRight());	
+			preorderPrint(tn.getLeft());
+			preorderPrint(tn.getRight());	
 		}
 	}
 	
-	public void postorder(TreeNode<T> tn){
+	public void postorderPrint(TreeNode<T> tn){
 		
 		if (tn != null){
-			postorder(tn.getLeft());
-			postorder(tn.getRight());	
+			postorderPrint(tn.getLeft());
+			postorderPrint(tn.getRight());	
 			System.out.print(tn.getData() + " ");
 		}
 	}
 	
-	public void inorder(TreeNode<T> tn){
+	public void inorderPrint(TreeNode<T> tn){
 		
 		if (tn != null){
-			inorder(tn.getLeft());
+			inorderPrint(tn.getLeft());
 			System.out.print(tn.getData() + " ");
-			inorder(tn.getRight());	
+			inorderPrint(tn.getRight());	
 			
 		}
 	}
