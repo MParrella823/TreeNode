@@ -48,40 +48,76 @@ public class TreeDriver {
 		bt.inorderPrint(bt.getRoot());
 		System.out.println("\nCount: " + bt.getCount());
 
+		tn = bt.deleteNode(7);
+		System.out.println("Postorder (After 7 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 7 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 7 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
 		
-
-		/*t1.insert(6);
-		t1.insert(12);
-		t1.insert(9);
-		t1.insert(3);
-		t1.insert(5);
-		t1.insert(2);
-		t1.insert(15);
-		t1.insert(10);
-		t1.insert(7);
-		t1.insert(1);
-
-		System.out.println("Count: " + t1.getCount());
-
-		System.out.println("\nPre Order: ");
-
-		t1.preorder(t1.getRoot());
-		System.out.println("");
-		System.out.println("\nIn Order:");
-
-		t1.inorder(t1.getRoot());
-		System.out.println("");
-		System.out.println("\nPost Order:");
-
-		t1.postorder(t1.getRoot());
+		tn = bt.deleteNode(10);
 		
-		tn = t1.deleteNode(6);
+		System.out.println("Postorder (After 10 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 10 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 10 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
+	
 		
-		System.out.println("");
-		System.out.println("After remove");
+		tn = bt.deleteNode(12);
+		System.out.println("Postorder (After 12 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 12 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 12 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
 		
-		t1.preorder(t1.getRoot());*/
-
+		tn = bt.deleteNode(15);
+		System.out.println("Postorder (After 15 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 15 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 15 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
+		
+	
+		
+		tn = bt.deleteNode(5);
+		System.out.println("Postorder (After 5 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 5 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 5 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
+		
+		tn = bt.deleteNode(3);
+		System.out.println("Postorder (After 3 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 3 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 3 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
+		
+		tn = bt.deleteNode(2);
+		System.out.println("Postorder (After 2 removal): ");
+		bt.postorderPrint(bt.getRoot());
+		System.out.println("\nPreorder (After 2 removal): ");
+		bt.preorderPrint(bt.getRoot());
+		System.out.println("\nInorder (After 2 removal): ");
+		bt.inorderPrint(bt.getRoot());
+		System.out.println("\nCount: " + bt.getCount());
+		
+		tn = bt.deleteNode(34);
+		
+		
 	}
 
 }
