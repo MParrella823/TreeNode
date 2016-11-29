@@ -327,10 +327,11 @@ public class Tree<T> {
 	
 	/**
 	 * 
+	 * This method will find the minimum value on the right side of the Tree.  This is mainly used for when the 
+	 * root node is deleted, and the minimum value on the right side of the tree needs to take it's place.
 	 * 
-	 * 
-	 * @param tn
-	 * @return
+	 * @param tn Starting node from which to find the minimum value on the right side
+	 * @return The location in memory of the minimum value node
 	 */
 
 	private TreeNode<T> findRightMin(TreeNode<T> tn){
@@ -352,22 +353,27 @@ public class Tree<T> {
 		return curr;
 	}
 
+	/**
+	 *  
+	 * This method will find the maximum value in the left branch of the starting node.
+	 * 
+	 * @param tn The starting node to begin the search 
+	 * @return The location of the node with the maximum value
+	 */
+	
 	private TreeNode<T> findLeftMax(TreeNode<T> tn){
 		TreeNode<T> curr = null;
 		curr = tn;
-
 		curr = curr.getLeft();
-
 		if (curr.getRight() == null){
 			return curr;
 		}
-
 		else{
 			while (curr.getRight() != null){
 				curr = curr.getRight();
 			}
 		}
 		return curr;
-
 	}
-}
+	
+}//End of class
