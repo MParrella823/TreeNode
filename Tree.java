@@ -164,7 +164,7 @@ public class Tree<T> {
 						curr.setRight(null);
 						count--;
 					}
-					else if (tn.getLeft() == curr){ //If it is the first node
+					else if (tn.getLeft() == curr){ //If it is the first node beyond the root node
 						if (curr.getLeft() == null){ 
 							curr = tn;
 							tn.setLeft(null);
@@ -178,6 +178,11 @@ public class Tree<T> {
 					}
 				}
 				else{
+					/*
+					 * 
+					 * The following lines of code will handle deleting a root node that has a right child
+					 * 
+					 */
 					curr = findRightMin(curr);
 					tn.setData(curr.getData());
 					if (tn.getRight() != curr){ //If it is not on second level
@@ -185,13 +190,13 @@ public class Tree<T> {
 						curr.setLeft(null);
 						count--;
 					}
-					else if (tn.getRight() == curr){
-						if (curr.getRight() == null){
+					else if (tn.getRight() == curr){ //If it is the first node after the root node
+						if (curr.getRight() == null){//If there is no node after the current node
 							curr = tn;
 							tn.setRight(null);
 							count--;
 						}
-						else if (curr.getRight() != null){
+						else if (curr.getRight() != null){//If there are more nodes past the current node
 							temp = curr.getRight();
 							tn.setRight(temp);
 							count --;
@@ -200,6 +205,11 @@ public class Tree<T> {
 
 				}
 			}
+			/*
+			 * 
+			 * This lines of code deal with deleting any node that is NOT the root node
+			 * 
+			 */
 			else{ 
 				curr = find(val);
 				if (curr.getLeft() == null && curr.getRight() == null){ //Deleting Leaf node
@@ -209,7 +219,6 @@ public class Tree<T> {
 						count--;
 					}
 					else {
-						
 						curr.setRight(null);
 						count--;
 					}
