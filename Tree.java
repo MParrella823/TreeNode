@@ -17,6 +17,7 @@ public class Tree<T> {
 
 
 	/**
+	 * 
 	 * @return the root
 	 */
 	public TreeNode<T> getRoot() {
@@ -25,7 +26,7 @@ public class Tree<T> {
 
 
 	/**
-	 * @param root the root to set
+	 * @param the root to set
 	 */
 	public void setRoot(TreeNode<T> root) {
 		this.root = root;
@@ -33,7 +34,7 @@ public class Tree<T> {
 
 
 	/**
-	 * @return the count
+	 * @return the current node count
 	 */
 	public int getCount() {
 		return count;
@@ -46,10 +47,26 @@ public class Tree<T> {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	
+	/**
+	 * 
+	 * This method will insert the passed value into the tree, adhering to the rules of a Binary Tree
+	 * 
+	 * @param val The value to be added to the tree
+	 */
 
 	public void insert(T val){
 		insert(this.root, val);
 	}
+	
+	/**
+	 * 
+	 * This is a private insert method that performs the same operation of the other insert method,
+	 * but instead it takes 2 arguments.
+	 * 
+	 * @param tn The starting node to begin inserting
+	 * @param val The value to be inserted into the tree
+	 */
 
 	private void insert(TreeNode<T> tn, T val){
 
@@ -88,6 +105,15 @@ public class Tree<T> {
 		}		
 
 	}
+	
+	/**
+	 * 
+	 * This method will delete the passed value from the Tree and return the deleted Node location.
+	 * 
+	 * 
+	 * @param val The value to be removed from the tree.
+	 * @return The deleted node's memory location.
+	 */
 
 	public TreeNode<T> deleteNode(T val){
 		TreeNode<T> temp;
@@ -95,6 +121,15 @@ public class Tree<T> {
 		deleteNode(this.root, val);
 		return temp;
 	}
+	
+	/**
+	 * 
+	 * This method is the same as the other 'deleteNode' method, except this version takes two arguments.
+	 * 
+	 * @param tn The starting node to find the node marked for deletion
+	 * @param val The value to be removed from the Tree
+	 * 
+	 */
 
 	private void deleteNode(TreeNode<T> tn, T val){
 		TreeNode<T> curr;
@@ -143,7 +178,6 @@ public class Tree<T> {
 					}
 				}
 				else{
-					System.out.println("tn data = " + tn.getData());
 					curr = findRightMin(curr);
 					tn.setData(curr.getData());
 					if (tn.getRight() != curr){ //If it is not on second level
@@ -185,14 +219,23 @@ public class Tree<T> {
 					curr.setData(temp.getData());
 					curr.setRight(null);
 					count--;
+					
 				}
 				else if (curr.getRight() == null && curr.getLeft() !=null){ //Deleting node which has 1 child node
 					temp = findLeftMax(curr);
+					
 					curr.setData(temp.getData());
-					curr.setLeft(temp.getParent());
-					curr = curr.getLeft();
-					curr.setRight(null);
+					temp = temp.getParent();
+					if (temp.getLeft() != null && temp.getRight() == null){
+						curr.setLeft(null);
+						curr.setRight(null);
+						count--;
+					}
+					else if (temp.getLeft() == null && temp.getRight() != null){
+					temp.setLeft(null);
+					temp.setRight(null);
 					count--;
+					}
 				}
 				
 				else if (curr.getRight() != null && curr.getLeft() == null){
@@ -206,6 +249,14 @@ public class Tree<T> {
 			}
 		}
 	}
+	
+	/**
+	 * 
+	 * This method will find the passed value in the tree and return that node's location in memory.
+	 * 
+	 * @param val The value to find
+	 * @return The node's location in memory
+	 */
 
 	public TreeNode<T> find(T val){
 		TreeNode<T> curr = null;
@@ -216,22 +267,21 @@ public class Tree<T> {
 			}
 			else if ((Integer)val < (Integer)curr.getData()){
 				curr = curr.getLeft();
-				
-				
 			}
 			else {
 				curr = curr.getRight();
-				
 			}
-			
-			
-			
 		}
-	
-
 		return curr;
 	}
 
+	/**
+	 * 
+	 * This method will print out the Tree's contents in 'pre' format (will first print the value, then move left/right)
+	 * 
+	 * @param tn The starting node in the tree to begin printing
+	 */
+	
 	public void preorderPrint(TreeNode<T> tn){
 
 		if (tn != null){
@@ -240,6 +290,13 @@ public class Tree<T> {
 			preorderPrint(tn.getRight());	
 		}
 	}
+	
+	/**
+	 * 
+	 * This method will print out the Tree's contents in 'post' format (will first  go left, go right, then print
+	 * 
+	 * @param tn The starting node in the tree to begin printing
+	 */
 
 	public void postorderPrint(TreeNode<T> tn){
 
@@ -249,6 +306,14 @@ public class Tree<T> {
 			System.out.print(tn.getData() + " ");
 		}
 	}
+	
+	/**
+	 * 
+	 * This method will print out the Tree's contents in 'in order' format (will first go left, print, then go right)
+	 * 
+	 * 
+	 * @param tn The starting node in the tree to begin printing
+	 */
 
 	public void inorderPrint(TreeNode<T> tn){
 
@@ -259,6 +324,14 @@ public class Tree<T> {
 
 		}
 	}
+	
+	/**
+	 * 
+	 * 
+	 * 
+	 * @param tn
+	 * @return
+	 */
 
 	private TreeNode<T> findRightMin(TreeNode<T> tn){
 		TreeNode<T> curr = null;
